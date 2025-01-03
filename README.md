@@ -1,12 +1,5 @@
 # 🎯 **Redux Toolkit Mastery Roadmap (Next.js App Router)**
 
-### ✅ **Prerequisites (Set Up Your Repo)**
-1. **Create a new GitHub repo**:  
-   **Repo Name:** `nextjs-redux-toolkit-mastery`  
-2. **Branching Strategy:**  
-   Follow this naming format for branches:  
-   `feature/01-basic-setup`, `feature/02-redux-core`, `feature/03-async-actions`, etc.
-
 ---
 
 ## 🔵 **Stage 1: Redux Core Concepts (Under the Hood)**  
