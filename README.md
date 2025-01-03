@@ -12,7 +12,6 @@
 4. **Middleware** – What middleware is and how it works.
 5. **DevTools Integration** – How Redux DevTools work.
 
-### 🔧 **Git Branch:** `feature/01-core-redux`  
 #### 📂 **Tasks to Implement:**
 - Set up a basic Next.js project using App Router.
 - Create a **Redux store** manually using `configureStore`.
@@ -30,7 +29,6 @@
 2. **Reducers & Actions** – Auto-generated actions from slices.
 3. **Selectors** – How to extract data from the store.
 
-### 🔧 **Git Branch:** `feature/02-slices`  
 #### 📂 **Tasks to Implement:**
 - Create multiple slices (e.g., `counterSlice`, `authSlice`).
 - Use **selectors** to retrieve specific pieces of state.
@@ -46,7 +44,6 @@
 2. **Custom Middleware** – How to write your own.
 3. **Enhancers** – Understanding how enhancers modify the store.
 
-### 🔧 **Git Branch:** `feature/03-middleware`  
 #### 📂 **Tasks to Implement:**
 - Integrate **redux-logger** middleware.
 - Write a **custom middleware** that logs every dispatched action.
@@ -62,7 +59,6 @@
 2. **Pending, Fulfilled, Rejected States** – Understanding lifecycle states.
 3. **Error Handling** – Handle errors from async operations.
 
-### 🔧 **Git Branch:** `feature/04-async-actions`  
 #### 📂 **Tasks to Implement:**
 - Create an async thunk to **fetch data** from an API (e.g., fetch users).
 - Handle **loading**, **success**, and **error** states.
@@ -78,7 +74,6 @@
 2. **Server Components + Redux** – Using Redux in a hybrid SSG/SSR app.
 3. **State Hydration** – Handling initial state hydration.
 
-### 🔧 **Git Branch:** `feature/05-nextjs-integration`  
 #### 📂 **Tasks to Implement:**
 - Set up the **ReduxProvider** in `app/layout.tsx`.
 - Use Redux state in both **server** and **client components**.
@@ -94,7 +89,6 @@
 2. **Dynamic Slices** – Adding reducers dynamically at runtime.
 3. **Custom Hooks** – Create custom hooks to use Redux state and actions.
 
-### 🔧 **Git Branch:** `feature/06-advanced-patterns`  
 #### 📂 **Tasks to Implement:**
 - Create a **modular architecture** for Redux.
 - Implement **dynamic reducers**.
@@ -110,7 +104,6 @@
 2. **Testing Thunks** – Mocking API calls.
 3. **Testing Middlewares** – Ensuring middleware works correctly.
 
-### 🔧 **Git Branch:** `feature/07-testing`  
 #### 📂 **Tasks to Implement:**
 - Write tests for **reducers** and **actions**.
 - Test **async thunks** with mocked API calls.
@@ -126,7 +119,6 @@
 2. **Avoiding Re-Renders** – Using `React.memo` and `useSelector` correctly.
 3. **Immutable Updates** – Ensuring state is updated immutably.
 
-### 🔧 **Git Branch:** `feature/08-performance-optimization`  
 #### 📂 **Tasks to Implement:**
 - Use **reselect** to memoize selectors.
 - Optimize component performance by avoiding unnecessary re-renders.
@@ -137,7 +129,6 @@
 ## 🔵 **Stage 9: Code Review & Final Project**  
 👉 **Goal:** Consolidate everything you've learned by building a **real-world app**.
 
-### 🔧 **Git Branch:** `feature/09-final-project`  
 #### 📂 **Tasks to Implement:**
 - Build a **Todo App** with features like:
   - CRUD operations.
