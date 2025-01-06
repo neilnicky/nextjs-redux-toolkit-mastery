@@ -1,22 +1,26 @@
 "use client";
-
 import { RootState } from "@/store";
-import { decrement, increment, reset } from "@/store/counterSlice";
+import { toggleTheme } from "@/store/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
+import Auth from "./components/Auth";
+import Counter from "./components/Counter";
 
 export default function Home() {
-  const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch();
+  const themeMode = useSelector((state: RootState) => state.theme.mode);
+
+  const themeClass =
+    themeMode === "dark" ? "bg-black text-white" : "bg-white text-black";
 
   return (
-    <div className="h-screen grid place-items-center ">
+    <div className={`h-screen grid place-items-center ${themeClass}`}>
+      <Auth />
+      <Counter />
       <div>
-        <h1 className="text-center">Count: {count}</h1>
-        <div className="gap-4 flex text-center text-5xl">
-          <button onClick={() => dispatch(increment())}>+</button>
-          <button onClick={() => dispatch(decrement())}>-</button>
-        </div>
-        <button onClick={() => dispatch(reset())}>Reset</button>
+        <h1 className="text-center">Current Theme: {themeMode}</h1>
+        <button onClick={() => dispatch(toggleTheme())} className="mt-4">
+          Toggle Theme
+        </button>
       </div>
     </div>
   );
