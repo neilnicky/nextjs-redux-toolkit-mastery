@@ -1,6 +1,6 @@
 "use client";
 import { RootState } from "@/store";
-import { toggleTheme } from "@/store/themeSlice";
+import { toggleTheme } from "@/store/slices/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Auth from "./components/Auth";
 import Counter from "./components/Counter";
