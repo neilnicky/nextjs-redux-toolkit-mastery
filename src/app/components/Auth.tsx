@@ -1,7 +1,7 @@
 "use client"
 
 import { RootState } from "@/store";
-import { login, logout } from "@/store/authSlice";
+import { login, logout } from "@/store/slices/authSlice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 

@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counterSlice";
-import authReducer from "./authSlice";
-import themeReducer from "./themeSlice";
+import counterReducer from "./slices/counterSlice";
+import authReducer from "./slices/authSlice";
+import themeReducer from "./slices/themeSlice";
+import logger from "redux-logger";
+import { customLoggerMiddleware } from "./middleware/customLoggerMiddleware";
+import { errorHandlingMiddleware } from "./middleware/errorHandlingMiddleware";
 
 export const store = configureStore({
   reducer: {
@@ -9,6 +12,8 @@ export const store = configureStore({
     auth: authReducer,
     theme: themeReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(logger, customLoggerMiddleware, errorHandlingMiddleware),
   devTools: process.env.NODE_ENV !== "production",
 });
 
