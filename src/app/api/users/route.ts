@@ -1,7 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { NextRequest } from "next/server";
 
-
 export async function GET() {
   try {
     const users = await prisma.user.findMany();
@@ -9,8 +8,6 @@ export async function GET() {
   } catch (error) {
     console.log("Error fetching users", error);
     return new Response("Failed to fetch user", { status: 500 });
-  } finally {
-    await prisma.$disconnect();
   }
 }
 
