@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./slices/counterSlice";
 import authReducer from "./slices/authSlice";
 import themeReducer from "./slices/themeSlice";
+import todoReducer from "./slices/todoSlice";
 import logger from "redux-logger";
 import { customLoggerMiddleware } from "./middleware/customLoggerMiddleware";
 import { errorHandlingMiddleware } from "./middleware/errorHandlingMiddleware";
@@ -11,9 +12,14 @@ export const store = configureStore({
     counter: counterReducer,
     auth: authReducer,
     theme: themeReducer,
+    todos: todoReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(logger, customLoggerMiddleware, errorHandlingMiddleware),
+    getDefaultMiddleware().concat(
+      logger,
+      customLoggerMiddleware,
+      errorHandlingMiddleware
+    ),
   devTools: process.env.NODE_ENV !== "production",
 });
 
