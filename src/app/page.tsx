@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Auth from "./components/Auth";
 import Counter from "./components/Counter";
 import Todos from "./components/Todos";
+import { ClientGreeting } from "./components/client-greeting";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function Home() {
 
   return (
     <div className={`h-screen grid place-items-center ${themeClass}`}>
+      <ClientGreeting />
       <Auth />
       <Counter />
       <div>
