@@ -4,6 +4,7 @@ import { toggleTheme } from "@/store/slices/themeSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Auth from "./components/Auth";
 import Counter from "./components/Counter";
+import Todos from "./components/Todos";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export default function Home() {
           Toggle Theme
         </button>
       </div>
+      <Todos />
     </div>
   );
 }
