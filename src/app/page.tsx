@@ -9,6 +9,9 @@ import Todos from "./components/Todos";
 export default function Home() {
   const dispatch = useDispatch();
   const themeMode = useSelector((state: RootState) => state.theme.mode);
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
 
   const themeClass =
     themeMode === "dark" ? "bg-black text-white" : "bg-white text-black";
@@ -17,14 +20,18 @@ export default function Home() {
     <div className={`h-screen grid place-items-center ${themeClass}`}>
       {/* <ClientGreeting /> */}
       <Auth />
-      <Counter />
-      <div>
-        <h1 className="text-center">Current Theme: {themeMode}</h1>
-        <button onClick={() => dispatch(toggleTheme())} className="mt-4">
-          Toggle Theme
-        </button>
-      </div>
-      <Todos />
+      {isAuthenticated ? (
+        <>
+          <Counter />
+          <div>
+            <h1 className="text-center">Current Theme: {themeMode}</h1>
+            <button onClick={() => dispatch(toggleTheme())} className="mt-4">
+              Toggle Theme
+            </button>
+          </div>
+          <Todos />
+        </>
+      ) : null}
     </div>
   );
 }
