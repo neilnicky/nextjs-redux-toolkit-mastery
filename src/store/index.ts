@@ -1,40 +1,20 @@
-// store setup
-// initializeUser action that can set the userSlice
-// also makeStore function to that creates fresh store
-
-import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-export interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
-interface UsersState {
-  user: User | null;
-}
-
-const initialState: UsersState = { user: null };
-
-const userSlice = createSlice({
-  name: "user",
-  initialState,
-  reducers: {
-    setData: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
-    },
-    initializeUser: (state, action: PayloadAction<User>) => {
-      state.user = action.payload;
-    },
-  },
-});
-
-export const { initializeUser } = userSlice.actions;
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./slices/userSlice";
+import productReducer from "./slices/productSlice";
+import authReducer from "./slices/authSlice";
+import todoReducer from "./slices/todoSlice";
+import counterReducer from "./slices/counterSlice";
+import themeReducer from "./slices/themeSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      user: userSlice.reducer,
+      user: userReducer,
+      product: productReducer,
+      auth: authReducer,
+      todo: todoReducer,
+      counter: counterReducer,
+      theme: themeReducer,
     },
   });
 };
@@ -42,3 +22,7 @@ export const makeStore = () => {
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
 export type AppDispatch = AppStore["dispatch"];
+
+// store setup
+// initializeUser action that can set the userSlice
+// also makeStore function to that creates fresh store
