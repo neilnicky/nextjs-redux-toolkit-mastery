@@ -1,27 +1,29 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./slices/counterSlice";
-import authReducer from "./slices/authSlice";
-import themeReducer from "./slices/themeSlice";
-import todoReducer from "./slices/todoSlice";
-import logger from "redux-logger";
-import { customLoggerMiddleware } from "./middleware/customLoggerMiddleware";
-import { errorHandlingMiddleware } from "./middleware/errorHandlingMiddleware";
+import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface InitialState {
+  data: any;
+}
+
+const initialState: InitialState = { data: null };
+
+const dataSlice = createSlice({
+  name: "data",
+  initialState,
+  reducers: {
+    setData: (state, action: PayloadAction<any>) => {
+      state.data = action.payload;
+    },
+  },
+});
+
+export const { setData } = dataSlice.actions;
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    auth: authReducer,
-    theme: themeReducer,
-    todos: todoReducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(
-      logger,
-      customLoggerMiddleware,
-      errorHandlingMiddleware
-    ),
-  devTools: process.env.NODE_ENV !== "production",
-});
+    data: dataSlice.reducer,
+  }
+})
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
