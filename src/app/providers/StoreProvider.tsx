@@ -5,7 +5,8 @@
 
 "use client";
 
-import { AppStore, initializeUser, makeStore, User } from "@/store";
+import { initializeUser, User } from "@/store/slices/userSlice";
+import { AppStore, makeStore } from "@/store/store";
 import { useRef } from "react";
 import { Provider } from "react-redux";
 
