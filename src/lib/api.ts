@@ -1,3 +1,6 @@
+//we fetch data on server side
+// this runs before the client
+
 export async function fetchData() {
   try {
     const response = await fetch(

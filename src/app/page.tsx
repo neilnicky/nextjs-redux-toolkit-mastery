@@ -1,12 +1,18 @@
+"use client";
 import { Suspense } from "react";
-import { fetchData } from "@/lib/api";
 import ClientComponent from "./components/ClientComponent";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store";
 
-export default async function Page() {
-  const data = await fetchData(); // Fetch data on the server
+export default function Page() {
+  const user = useSelector((state: RootState) => state.user.user);
+
+  console.log(user);
+
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <ClientComponent serverData={data} />
+      <ClientComponent />
+      {user?.name}
     </Suspense>
   );
 }

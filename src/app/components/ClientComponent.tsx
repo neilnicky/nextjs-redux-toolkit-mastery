@@ -1,25 +1,17 @@
 "use client";
-import { setData } from "@/store";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
+import { useSelector } from "react-redux";
 
-export default function ClientComponent({ serverData }: { serverData: any }) {
-  const dispatch = useDispatch();
+export default function ClientComponent() {
+  const user = useSelector((state: RootState) => state.user.user);
 
-  const initialData = useSelector((state: any) => state.data);
-
-  useEffect(() => {
-    if (serverData) {
-      dispatch(setData(serverData)); // Set Redux store with server-fetched data
-    }
-  }, [serverData, dispatch]);
+  if (!user) return <div>Loading...</div>;
 
   return (
     <div>
-      Data has been loaded into Redux store.
-      <div>
-        <p>{JSON.stringify(initialData)}</p>
-      </div>
+      <h1>User Profile</h1>
+      <p>Name: {user.name}</p>
+      <p>Email: {user.email}</p>
     </div>
   );
 }
