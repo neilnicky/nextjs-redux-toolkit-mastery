@@ -1,4 +1,5 @@
 import { addTodo, deleteTodo, toggleTodo } from "@/store/slices/todoSlice";
+import { RootState } from "@/store/store";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,7 +12,7 @@ interface Todo {
 export default function Todos() {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state: RootState) => state.todo.todos);
 
   const handleAddTodo = () => {
     if (text.trim() === "") return;

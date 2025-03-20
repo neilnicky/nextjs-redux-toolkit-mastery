@@ -1,30 +1,18 @@
 "use client";
-import { RootState } from "@/store";
-import { toggleTheme } from "@/store/slices/themeSlice";
-import { useDispatch, useSelector } from "react-redux";
-import Auth from "./components/Auth";
-import Counter from "./components/Counter";
-import Todos from "./components/Todos";
+
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import ClientComponent from "./components/ClientComponent";
+import { RootState } from "@/store/store";
 
 export default function Home() {
-  const dispatch = useDispatch();
-  const themeMode = useSelector((state: RootState) => state.theme.mode);
+  const user = useSelector((state: RootState) => state.user.user);
 
-  const themeClass =
-    themeMode === "dark" ? "bg-black text-white" : "bg-white text-black";
+  console.log(user);
 
   return (
-    <div className={`h-screen grid place-items-center ${themeClass}`}>
-      {/* <ClientGreeting /> */}
-      <Auth />
-      <Counter />
-      <div>
-        <h1 className="text-center">Current Theme: {themeMode}</h1>
-        <button onClick={() => dispatch(toggleTheme())} className="mt-4">
-          Toggle Theme
-        </button>
-      </div>
-      <Todos />
-    </div>
+    <Suspense fallback={<div>Loading...</div>}>
+      <ClientComponent />
+    </Suspense>
   );
 }
